@@ -33,7 +33,7 @@ namespace HeroHQ_Dynamic.ViewModels
 
         public void getSearchResult(string heroname)
         {
-            herolist = heros.Where(h => h.Nom.Contains(heroname)).ToList();
+            herolist = heros.Where(h => h.Nom.ToLower().Contains(heroname.ToLower())).ToList();
         }
     }
 }

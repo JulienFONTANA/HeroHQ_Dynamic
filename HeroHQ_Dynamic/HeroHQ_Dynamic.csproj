@@ -253,7 +253,6 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\Scripts\SearchScript.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Hero\details.cshtml" />
     <Content Include="Views\Hero\_searchResult.cshtml" />

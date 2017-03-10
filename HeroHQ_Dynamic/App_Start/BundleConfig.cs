@@ -27,10 +27,6 @@ namespace HeroHQ_Dynamic
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
                       "~/css/style.css"));
-
-            // Bundle maisons
-            bundles.Add(new ScriptBundle("~/bundles/SearchScripts").Include(
-                        "~/Scripts/Scripts/SearchScript.js"));
         }
     }
 }

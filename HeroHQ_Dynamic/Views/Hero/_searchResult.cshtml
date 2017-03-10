@@ -1,35 +1,23 @@
 ﻿@model HeroHQ_Dynamic.ViewModels.HeroSearchViewModel
 
 <div class="col-xs-12">
-    @if (Model == null)
+    @if (Model == null || Model.herolist == null || Model.herolist.Count == 0)
     {
-        @*<p class="col-xs-12 blank">Faites votre recherche!</p>*@
-    }
-    else if (Model.herolist.Count == 0)
-    {
-        <div class="heroes row">
-            <div class="result">
-                <p class="col-xs-12 blank">Aucun Hero ne correspond à votre recherche</p>
-            </div>
-        </div>
+        <p class="col-xs-12 blank">Aucun Hero ne correspond à votre recherche</p>
     }
     else
     {
-        <div class="heroes row">
-            <div class="result">
-                @foreach (var item in Model.herolist)
+        foreach (var item in Model.herolist)
                 {
-                    <div class="col-xs-6 col-sm-3 hero">
-                        <a href="/Hero/details/@item.Id">
-                            <img src="/images/@item.Photo" alt="@item.Nom" height="175" width="150">
-                            <div class="bot">
-                                <p class="name">@item.Nom</p>
-                            </div>
-                        </a>
+            <div class="col-xs-6 col-sm-3 hero">
+                <a href="/Hero/details/@item.Id">
+                    <img src="/images/@item.Photo" alt="@item.Nom" height="175" width="150">
+                    <div class="bot">
+                        <p class="name">@item.Nom</p>
                     </div>
-                }
+                </a>
             </div>
-        </div>
+        }
     }
 </div>
 

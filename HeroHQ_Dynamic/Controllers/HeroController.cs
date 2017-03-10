@@ -31,10 +31,22 @@ namespace HeroHQ_Dynamic.Controllers
         }
 
         [HttpGet]
+        public ActionResult Search()
+        {
+            var heroSearch = new HeroSearchViewModel();
+
+            heroSearch.getSearchResult("");
+            if (heroSearch.herolist == null)
+            {
+                return HttpNotFound();
+            }
+            return View(heroSearch);
+        }
+
+        // POST: Hero/Search/{nom du hero}
+        [HttpPost]
         public ActionResult Search(string heroName)
         {
-            heroName = ""; // DEBUG
-
             if (heroName != null)
             {
                 var heroSearch = new HeroSearchViewModel();
@@ -47,7 +59,6 @@ namespace HeroHQ_Dynamic.Controllers
                 return View(heroSearch);
             }
             return View();
-
         }
 
         //// GET: Receipe/Create
