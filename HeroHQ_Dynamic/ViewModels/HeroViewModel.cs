@@ -21,7 +21,6 @@ namespace HeroHQ_Dynamic.ViewModels
         }
     }
 
-
     public class HeroSearchViewModel : ViewModel
     {
         public List<Hero> herolist { get; set; }
@@ -34,6 +33,24 @@ namespace HeroHQ_Dynamic.ViewModels
         public void getSearchResult(string heroname)
         {
             herolist = heros.Where(h => h.Nom.ToLower().Contains(heroname.ToLower())).ToList();
+        }
+    }
+
+    public class NewHeroViewModel : ViewModel
+    {
+        public int Age { get; set; }
+        public string Nom { get; set; }
+        public string Citation { get; set; }
+        public string Photo { get; set; }
+        public string Pouvoir { get; set; }
+
+        public NewHeroViewModel(int age, string nom, string citation, string photo, string pouvoir)
+        {
+            Age = age;
+            Nom = nom;
+            Citation = citation;
+            Photo = photo;
+            Pouvoir = pouvoir;
         }
     }
 }

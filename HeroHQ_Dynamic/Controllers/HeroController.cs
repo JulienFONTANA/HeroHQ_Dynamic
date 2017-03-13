@@ -1,4 +1,5 @@
-﻿using HeroHQ_Dynamic.ViewModels;
+﻿using HeroHQ_Dynamic.Model;
+using HeroHQ_Dynamic.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -11,6 +12,7 @@ namespace HeroHQ_Dynamic.Controllers
 {
     public class HeroController : Controller
     {
+        #region Details
         // GET: Hero/Details/{id du héro}
         [HttpGet]
         public ActionResult Details(int id)
@@ -29,7 +31,10 @@ namespace HeroHQ_Dynamic.Controllers
 
             return View(heroDWM);
         }
+        #endregion
 
+        #region Recherche
+        // GET : /Hero/Search/ <- Page par défaut
         [HttpGet]
         public ActionResult Search()
         {
@@ -43,7 +48,7 @@ namespace HeroHQ_Dynamic.Controllers
             return View(heroSearch);
         }
 
-        // POST: Hero/Search/{nom du hero}
+        // POST: /Hero/Search/{nom du hero}
         [HttpPost]
         public ActionResult Search(string heroName)
         {
@@ -60,56 +65,67 @@ namespace HeroHQ_Dynamic.Controllers
             }
             return View();
         }
+        #endregion
 
-        //// GET: Receipe/Create
-        //[HttpGet]
-        //[Authorize]
-        //public ActionResult Create()
-        //{
-        //    return View(createView);
-        //}
+        #region Nouveau Hero
+        // GET: /Hero/Create
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
+        }
 
-        //// POST: Receipe/Create
-        //[HttpPost]
-        //[Authorize]
-        ////[ValidateAntiForgeryToken]
-        //public ActionResult Create(CreateReceipe cr)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var recettes = new Recettes();
+        // POST: /Hero/Create
+        [HttpPost]
+        public ActionResult Create(NewHeroViewModel cr)
+        {
+            if (ModelState.IsValid)
+            {
+                var hero = new Hero();
 
-        //        HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
-        //        recettes.creatorId = Convert.ToInt32(FormsAuthentication.Decrypt(authCookie.Value).Name);
+                hero.Id = cr.heros.Count() + 1;
+                
 
-        //        recettes.id = cr.recName.ToLower().Replace(" ", "-");
-        //        recettes.name = cr.recName;
-
-        //        recettes.ingredients = new List<Ingredients>();
-        //        foreach (var item in cr.recIdIngredients.Split(','))
-        //        {
-        //            recettes.ingredients.Add(cr.db.Ingredients.SingleOrDefault(m => m.id == item));
-        //        }
-
-        //        recettes.calories = cr.recCalories;
-        //        recettes.isAvailable = true;
-
-        //        HttpPostedFileBase file = cr.pictureFile;
-        //        if (file.ContentLength > 0)
-        //        {
-        //            string uploadDir = "~/Content/img/recettes/";
-        //            string path = Path.Combine(Server.MapPath(uploadDir), file.FileName);
-        //            file.SaveAs(path);
-        //            recettes.picture = "img/recettes/" + Path.GetFileName(file.FileName);
-        //        }
-
-        //        recettes.preparation = cr.recPrep;
-
-        //        cr.db.Recettes.Add(recettes);
-        //        cr.db.SaveChanges();
-        //        return Redirect("/Community/Details/" + recettes.creatorId);
-        //    }
-        //    return View(cr);
-        //}
+                hero.Age      = 23;
+                hero.Citation = "plop";
+                hero.Nom      = "top";
+                hero.Photo    = "/path/to.img";
+                hero.Pouvoir  = "wow";
+            }
+            return View(cr);
+        }
+        #endregion
     }
 }
+
+//var recettes = new Recettes();
+
+//HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+//recettes.creatorId = Convert.ToInt32(FormsAuthentication.Decrypt(authCookie.Value).Name);
+
+//recettes.id = cr.recName.ToLower().Replace(" ", "-");
+//recettes.name = cr.recName;
+
+//recettes.ingredients = new List<Ingredients>();
+//foreach (var item in cr.recIdIngredients.Split(','))
+//{
+//    recettes.ingredients.Add(cr.db.Ingredients.SingleOrDefault(m => m.id == item));
+//}
+
+//recettes.calories = cr.recCalories;
+//recettes.isAvailable = true;
+
+//HttpPostedFileBase file = cr.pictureFile;
+//if (file.ContentLength > 0)
+//{
+//    string uploadDir = "~/Content/img/recettes/";
+//    string path = Path.Combine(Server.MapPath(uploadDir), file.FileName);
+//    file.SaveAs(path);
+//    recettes.picture = "img/recettes/" + Path.GetFileName(file.FileName);
+//}
+
+//recettes.preparation = cr.recPrep;
+
+//cr.db.Recettes.Add(recettes);
+//cr.db.SaveChanges();
+//return Redirect("/Community/Details/" + recettes.creatorId);

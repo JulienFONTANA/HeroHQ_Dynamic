@@ -16,8 +16,8 @@
     <link rel="shortcut icon" href="images/favicon.png" />
     <link rel="image_src" href="images/favicon.png" />
     <link rel="icon" type="image/png" href="images/favicon.png" />
-    <meta name="robots" content="noindex, nofollow" />
-    <script type="text/javascript" src="Scripts/jquery-3.1.1.js"></script>
+    @*<meta name="robots" content="noindex, nofollow" />*@
+    @*<script type="text/javascript" src="Scripts/jquery-3.1.1.js"></script>*@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
@@ -35,7 +35,7 @@
                         </a>
                         <div class="desc">
                             <p>Besoin d'un héro?<br />Trouvez celui qu'il vous faut!</p>
-                            <p><a class="link" href="/Hero/Search/"><strong>23 héros</strong> à découvrir !</a></p>
+                            <p><a class="link" href="@Url.Action("Search", "Hero")"><strong>23 héros</strong> à découvrir !</a></p>
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                                     </a>
                                 </li>
                                 <li class="page_rec">
-                                    <a href="/Hero/Search/">
+                                    <a href="@Url.Action("Search", "Hero")">
                                         <span>Recherche</span>
                                     </a>
                                 </li>
