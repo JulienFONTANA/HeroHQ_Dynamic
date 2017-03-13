@@ -17,10 +17,7 @@ namespace HeroHQ_Dynamic.Model
         public string Citation { get; set; }
         public string Photo { get; set; }
 
-        public Hero()
-        {
-
-        }
+        public Hero() {}
 
         public Hero(string nom, int age, string pouvoir, string citation, string photo)
         {

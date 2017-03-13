@@ -35,22 +35,4 @@ namespace HeroHQ_Dynamic.ViewModels
             herolist = heros.Where(h => h.Nom.ToLower().Contains(heroname.ToLower())).ToList();
         }
     }
-
-    //public class NewHeroViewModel : ViewModel
-    //{
-    //    public int Age { get; set; }
-    //    public string Nom { get; set; }
-    //    public string Citation { get; set; }
-    //    public string Photo { get; set; }
-    //    public string Pouvoir { get; set; }
-
-    //    public NewHeroViewModel(string nom, int age, string citation, string photo, string pouvoir)
-    //    {
-    //        Age = age;
-    //        Nom = nom;
-    //        Citation = citation;
-    //        Photo = photo;
-    //        Pouvoir = pouvoir;
-    //    }
-    //}
 }

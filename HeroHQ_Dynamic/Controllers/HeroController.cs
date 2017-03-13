@@ -102,7 +102,8 @@ namespace HeroHQ_Dynamic.Controllers
             }
 
             // Sinon on retourne sur la page du héro créé
-            return Redirect("/Hero/Details/" + (vm.heros.Count() + 1));
+            int heroID = vm.db.allHeros.First(h => h.Nom == heroName).Id;
+            return Redirect("/Hero/Details/" + heroID);
         }
         #endregion
     }
