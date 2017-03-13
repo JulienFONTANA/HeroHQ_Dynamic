@@ -8,7 +8,6 @@ namespace HeroHQ_Dynamic
     {
         public void Configuration(IAppBuilder app)
         {
-            //ConfigureAuth(app);
         }
     }
 }

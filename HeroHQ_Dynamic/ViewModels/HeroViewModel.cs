@@ -36,21 +36,21 @@ namespace HeroHQ_Dynamic.ViewModels
         }
     }
 
-    public class NewHeroViewModel : ViewModel
-    {
-        public int Age { get; set; }
-        public string Nom { get; set; }
-        public string Citation { get; set; }
-        public string Photo { get; set; }
-        public string Pouvoir { get; set; }
+    //public class NewHeroViewModel : ViewModel
+    //{
+    //    public int Age { get; set; }
+    //    public string Nom { get; set; }
+    //    public string Citation { get; set; }
+    //    public string Photo { get; set; }
+    //    public string Pouvoir { get; set; }
 
-        public NewHeroViewModel(string nom, int age, string citation, string photo, string pouvoir)
-        {
-            Age = age;
-            Nom = nom;
-            Citation = citation;
-            Photo = photo;
-            Pouvoir = pouvoir;
-        }
-    }
+    //    public NewHeroViewModel(string nom, int age, string citation, string photo, string pouvoir)
+    //    {
+    //        Age = age;
+    //        Nom = nom;
+    //        Citation = citation;
+    //        Photo = photo;
+    //        Pouvoir = pouvoir;
+    //    }
+    //}
 }
