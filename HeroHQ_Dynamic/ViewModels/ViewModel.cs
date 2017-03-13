@@ -8,7 +8,7 @@ namespace HeroHQ_Dynamic.ViewModels
 {
     public class ViewModel
     {
-        private Context db { get; }
+        public Context db { get; set; }
         public List<Hero> heros { get; set; }
 
         public ViewModel()

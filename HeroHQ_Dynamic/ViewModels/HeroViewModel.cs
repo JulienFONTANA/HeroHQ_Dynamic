@@ -44,7 +44,7 @@ namespace HeroHQ_Dynamic.ViewModels
         public string Photo { get; set; }
         public string Pouvoir { get; set; }
 
-        public NewHeroViewModel(int age, string nom, string citation, string photo, string pouvoir)
+        public NewHeroViewModel(string nom, int age, string citation, string photo, string pouvoir)
         {
             Age = age;
             Nom = nom;

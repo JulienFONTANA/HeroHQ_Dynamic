@@ -1,0 +1,62 @@
+﻿@model HeroHQ_Dynamic.ViewModels.NewHeroViewModel
+
+<!-- Nouveau Hero -->
+<div class="col-xs-12 col-sm-9">
+    <div class="content" id="new_hero">
+        <h1 class="page-title">Nouvelle candidature</h1>
+        <section class="section">
+
+            @using (Ajax.BeginForm("Create", "Hero", new AjaxOptions
+            {
+                HttpMethod = "POST"
+            }))
+            {
+                <div class="row">
+                    <!-- Colonne de gauche -->
+                    <div class="col-xs-6">
+                        <p class="line">
+                            <label for="">Quel est votre nom de héro?</label>
+                            <input type="text" class="mb0 wide" id="heroName" name="heroName" required>
+                        </p>
+                        <p class="line">
+                            <label for="">Quel âge avez vous?</label>
+                            <input type="number" class="mb0 wide" id="heroAge" name="heroAge" required>
+                        </p>
+                        <p class="line">
+                            <label for="">Quel est votre pouvoir?</label>
+                            <input type="text" class="mb0 wide" id="heroPow" name="heroPow" required>
+                        </p>
+                        <p class="line">
+                            <label for="">Quel est votre citation de référance?</label>
+                            <input type="text" class="mb0 wide" id="heroCit" name="heroCit" required>
+                        </p>
+                    </div>
+
+                    <!-- Colonne de droite -->
+                    <div class="col-xs-6">
+                        <p class="line">
+                            <label for="">Photo du héro</label>
+                            <input type="file" class="mb0" id="heroImg" name="heroImg" required>
+                        </p>
+                        <p class="line ac">
+                            <img class="current_img" src="/images/hero_img_placeholder.png" alt="Visuel hero" width="200" height="200">
+                        </p>
+                    </div>
+
+                    <!-- Saut de ligne -->
+                    <div class="col-xs-12">
+                        <div class="hr mt2 mb2"></div>
+                    </div>
+
+                    <!-- Boutton -->
+                    <div class="col-xs-12 ac">
+                        <button type="submit" class="btn btn_color3 recette_save">
+                            <span class="glyphicon glyphicon-ok mr0"></span><span>Valider ma candidature</span>
+                        </button>
+                    </div>
+                </div>
+            }
+
+        </section>
+    </div>
+</div>

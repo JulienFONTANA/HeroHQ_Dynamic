@@ -77,55 +77,33 @@ namespace HeroHQ_Dynamic.Controllers
 
         // POST: /Hero/Create
         [HttpPost]
-        public ActionResult Create(NewHeroViewModel cr)
+        public ActionResult Create(string heroName, int heroAge, string heroPow, string heroCit, string heroImg)
         {
-            if (ModelState.IsValid)
+            var vm = new ViewModel(); // used for the context
+
+            var newHero = new Hero();
+            newHero.Age = heroAge;
+            newHero.Citation = heroCit;
+            newHero.Id = vm.heros.Count() + 1;
+            newHero.Nom = heroName;
+            newHero.Photo = heroImg;
+            newHero.Pouvoir = heroPow;
+
+            vm.db.allHeros.Add(newHero);
+
+            try
             {
-                var hero = new Hero();
-
-                hero.Id = cr.heros.Count() + 1;
-                
-
-                hero.Age      = 23;
-                hero.Citation = "plop";
-                hero.Nom      = "top";
-                hero.Photo    = "/path/to.img";
-                hero.Pouvoir  = "wow";
+                vm.db.SaveChanges();
             }
-            return View(cr);
+            catch (Exception)
+            {
+                // Si erreur on retourne sur la page de création du héro
+                return View();
+            }
+
+            // Sinon on retourne sur la page du héro créé
+            return Redirect("/Hero/Details/" + heroName);
         }
         #endregion
     }
 }
-
-//var recettes = new Recettes();
-
-//HttpCookie authCookie = Request.Cookies[FormsAuthentication.FormsCookieName];
-//recettes.creatorId = Convert.ToInt32(FormsAuthentication.Decrypt(authCookie.Value).Name);
-
-//recettes.id = cr.recName.ToLower().Replace(" ", "-");
-//recettes.name = cr.recName;
-
-//recettes.ingredients = new List<Ingredients>();
-//foreach (var item in cr.recIdIngredients.Split(','))
-//{
-//    recettes.ingredients.Add(cr.db.Ingredients.SingleOrDefault(m => m.id == item));
-//}
-
-//recettes.calories = cr.recCalories;
-//recettes.isAvailable = true;
-
-//HttpPostedFileBase file = cr.pictureFile;
-//if (file.ContentLength > 0)
-//{
-//    string uploadDir = "~/Content/img/recettes/";
-//    string path = Path.Combine(Server.MapPath(uploadDir), file.FileName);
-//    file.SaveAs(path);
-//    recettes.picture = "img/recettes/" + Path.GetFileName(file.FileName);
-//}
-
-//recettes.preparation = cr.recPrep;
-
-//cr.db.Recettes.Add(recettes);
-//cr.db.SaveChanges();
-//return Redirect("/Community/Details/" + recettes.creatorId);
