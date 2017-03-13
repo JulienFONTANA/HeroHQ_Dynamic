@@ -84,7 +84,7 @@ namespace HeroHQ_Dynamic.Controllers
             var newHero = new Hero();
             newHero.Age = heroAge;
             newHero.Citation = heroCit;
-            newHero.Id = vm.heros.Count() + 1;
+            //newHero.Id = vm.heros.Count() + 1;
             newHero.Nom = heroName;
             newHero.Photo = heroImg;
             newHero.Pouvoir = heroPow;
@@ -102,7 +102,7 @@ namespace HeroHQ_Dynamic.Controllers
             }
 
             // Sinon on retourne sur la page du héro créé
-            return Redirect("/Hero/Details/" + heroName);
+            return Redirect("/Hero/Details/" + (vm.heros.Count() + 1));
         }
         #endregion
     }
