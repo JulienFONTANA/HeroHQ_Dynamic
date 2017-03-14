@@ -1,9 +1,12 @@
-﻿<!-- Nouveau Hero -->
+﻿<!-- Ici pas besoin de Model, on n'affiche rien en dynamique -->
+
+<!-- Nouveau Hero -->
 <div class="col-xs-12 col-sm-9">
     <div class="content" id="new_hero">
         <h1 class="page-title">Nouvelle candidature</h1>
         <section class="section">
 
+            <!-- Formulaire utilisé pour créer un nouveau héro -->
             @using (Ajax.BeginForm("Create", "Hero", new AjaxOptions
             {
                 HttpMethod = "POST"
@@ -46,7 +49,7 @@
                         <div class="hr mt2 mb2"></div>
                     </div>
 
-                    <!-- Boutton -->
+                    <!-- Boutton pour valider -->
                     <div class="col-xs-12 ac">
                         <button type="submit" class="btn btn_color3 recette_save">
                             <span class="glyphicon glyphicon-ok mr0"></span><span>Valider ma candidature</span>

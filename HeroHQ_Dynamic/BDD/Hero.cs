@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace HeroHQ_Dynamic.Model
 {
+    // Classe "Hero", elle représente notre modèle dans la base de donnée
     public class Hero
     {
+        // [Key] est une annotation pour signaler à EntityFramework
+        // que le champ Id est une clé primaire
         [Key]
         public int Id { get; set; }
         public string Nom { get; set; }
@@ -16,16 +14,5 @@ namespace HeroHQ_Dynamic.Model
         public string Pouvoir { get; set; }
         public string Citation { get; set; }
         public string Photo { get; set; }
-
-        public Hero() {}
-
-        public Hero(string nom, int age, string pouvoir, string citation, string photo)
-        {
-            Nom = nom;
-            Age = age;
-            Pouvoir = pouvoir;
-            Citation = citation;
-            Photo = photo;
-        }
     }
 }

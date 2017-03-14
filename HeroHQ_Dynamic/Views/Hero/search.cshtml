@@ -1,4 +1,6 @@
-﻿@model HeroHQ_Dynamic.ViewModels.HeroSearchViewModel
+﻿<!-- Ici le model utilisé par la vue Razor ne sert pas directement à afficher
+     des informations, mais est utilisée dans la vue partielle -->
+@model HeroHQ_Dynamic.ViewModels.HeroSearchViewModel
 
 <!-- Search -->
 <div class="col-xs-12 col-sm-9">
@@ -13,7 +15,7 @@
                             <div class="filters">
 
                                 <div class="filters" id="filters">
-                                    <!-- Formulaire -->
+                                    <!-- Formulaire de recherche -->
                                     @using (Ajax.BeginForm("Search", "Hero", new AjaxOptions
                                     {
                                         HttpMethod = "POST",
@@ -40,6 +42,7 @@
                 <!-- Affichage du résultat de la recherche -->
                 <div class="result">
                     <div class="heroes row" id="HeroResult">
+                        <!-- Ici les résultats sont affiché dans une vue partielle! -->
                         @Html.Partial("_searchResult", Model)
                     </div>
                 </div>

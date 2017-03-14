@@ -1,4 +1,5 @@
-﻿@model HeroHQ_Dynamic.ViewModels.HeroDetailsViewModel
+﻿<!-- Model utilisé par la vue Razor pour afficher le détail d'un héro -->
+@model HeroHQ_Dynamic.ViewModels.HeroDetailsViewModel
 
 <!-- Hero Details -->
 <div class="col-xs-12 col-sm-9">
@@ -7,11 +8,13 @@
 
         <section class="section details">
             <div class="row">
+                <!-- Affichage de l'image à gauche -->
                 <div class="col-vxs-12 col-xs-6 col-sm-5">
                     <div class="avatar-wrap">
                         <img class="avatar" src="/images/@Model.detail.Photo" alt="@Model.detail.Nom">
                     </div>
                 </div>
+                <!-- Affichage des informations à droite -->
                 <div class="col-vxs-12 col-xs-6 col-sm-7">
                     <div class="infos">
                         <h1 class="name">@Model.detail.Nom</h1>

@@ -1,5 +1,9 @@
-﻿<!DOCTYPE html>
+﻿<!-- Le layout est le nom de la vue qui englobe toutes les autres -->
+<!-- On présise aux navigateur le languague utilisé, ici HTML -->
+<!DOCTYPE html>
 <html>
+
+<!-- La section "head" contient les informations utilisés par votre navigateur -->
 <head>
     <meta charset="utf-8" />
     <title>Hero H.Q. Néo</title>
@@ -16,11 +20,14 @@
     <link rel="shortcut icon" href="images/favicon.png" />
     <link rel="image_src" href="images/favicon.png" />
     <link rel="icon" type="image/png" href="images/favicon.png" />
+    <!-- Ici on dit quel scripts utiliser -->
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
 </head>
+
+<!-- La section "body" contient les informations que l'on doit afficher -->
 <body>
     <div id="wrapper">
         <!-- Header -->
@@ -33,7 +40,7 @@
                         </a>
                         <div class="desc">
                             <p>Besoin d'un héro?<br />Trouvez celui qu'il vous faut!</p>
-                            <p><a class="link" href="@Url.Action("Search", "Hero")"><strong>23 héros</strong> à découvrir !</a></p>
+                            <p><a class="link" href="@Url.Action("Search", "Hero")"><strong>De nombreux héros</strong> à votre service !</a></p>
                         </div>
                     </div>
                 </div>
