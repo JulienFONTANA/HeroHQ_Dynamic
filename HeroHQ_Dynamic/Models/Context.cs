@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace HeroHQ_Dynamic.Model
+namespace HeroHQ_Dynamic.Models
 {
     // Classe Context
     // Un "contexte" est comme son nom l'indique l'ensemble des
@@ -11,6 +11,6 @@ namespace HeroHQ_Dynamic.Model
     {
         // DbSet est une collection qui agit comme une basse de donnée et qui
         // est utilisée par EntityFramework
-        public DbSet<Hero> allHeros { get; set; }
+        public DbSet<Hero> Heroes { get; set; }
     }
 }

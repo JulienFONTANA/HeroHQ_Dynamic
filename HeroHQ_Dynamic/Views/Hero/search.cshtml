@@ -1,6 +1,8 @@
-﻿<!-- Ici le model utilisé par la vue Razor ne sert pas directement à afficher
+﻿@using HeroHQ_Dynamic.Models;
+
+<!-- Ici le model utilisé par la View ne sert pas directement à afficher
      des informations, mais est utilisée dans la vue partielle -->
-@model HeroHQ_Dynamic.ViewModels.HeroSearchViewModel
+@model List<Hero>
 
 <!-- Search -->
 <div class="col-xs-12 col-sm-9">
@@ -16,12 +18,7 @@
 
                                 <div class="filters" id="filters">
                                     <!-- Formulaire de recherche -->
-                                    @using (Ajax.BeginForm("Search", "Hero", new AjaxOptions
-                                    {
-                                        HttpMethod = "POST",
-                                        UpdateTargetId = "HeroResult",
-                                        InsertionMode = InsertionMode.Replace
-                                    }))
+                                    @using(Html.BeginForm("Search", "Hero"))
                                     {
                                         <div class="filter">
                                             <p><label for="">Nom du héro</label></p>
@@ -42,11 +39,23 @@
                 <!-- Affichage du résultat de la recherche -->
                 <div class="result">
                     <div class="heroes row" id="HeroResult">
-                        <!-- Ici les résultats sont affiché dans une vue partielle! -->
-                        @Html.Partial("_searchResult", Model)
+                        <div class="col-xs-12">
+                            <!-- Si le modèle est null ou vide, la recherche à été infructueuse -->
+                            @if (Model == null || Model.Count == 0)
+                            {
+                                <p class="col-xs-12 blank">Aucun Hero ne correspond à votre recherche</p>
+                            }
+                            else
+                            {
+                                <!-- Sinon on affiche le(s) héro(s) grâce à une vue partielle -->
+                                foreach (var hero in Model)
+                                {
+                                    @Html.Partial("_Hero", hero)
+                                }
+                            }
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

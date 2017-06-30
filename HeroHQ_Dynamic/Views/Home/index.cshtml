@@ -1,5 +1,8 @@
-﻿<!-- Model utilisé par la vue Razor pour afficher l'accueil -->
-@model HeroHQ_Dynamic.ViewModels.HomeViewModel
+﻿@using HeroHQ_Dynamic.Models;
+
+<!-- Ici le model utilisé par la View ne sert pas directement à afficher
+     des informations, mais est utilisée dans la vue partielle -->
+@model List<Hero>
 
 <!-- Home -->
 <div class="col-xs-12 col-sm-9">
@@ -10,16 +13,9 @@
             <h2 class="title">~ Nos héros disponibles ~</h2>
             <div class="heroes row">
                 <!-- Affichage de quelques héros disponibles -->
-                @foreach (var item in Model.herosDispo)
+                @foreach (var hero in Model)
                 {
-                    <div class="col-xs-6 col-sm-3 hero">
-                            <a href="/Hero/details/@item.Id">
-                                <img src=~/images/@item.Photo alt=@item.Nom height="175" width="150">
-                                <div class="bot">
-                                    <p class="name">@item.Nom</p>
-                                </div>
-                            </a>
-                    </div>
+                    @Html.Partial("_Hero", hero)
                 }
             </div>
         </section>

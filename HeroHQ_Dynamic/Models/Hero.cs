@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace HeroHQ_Dynamic.Model
+namespace HeroHQ_Dynamic.Models
 {
     // Classe "Hero", elle représente notre modèle dans la base de donnée
     public class Hero

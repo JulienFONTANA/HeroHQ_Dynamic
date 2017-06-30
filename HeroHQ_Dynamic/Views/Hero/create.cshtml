@@ -7,10 +7,11 @@
         <section class="section">
 
             <!-- Formulaire utilisé pour créer un nouveau héro -->
-            @using (Ajax.BeginForm("Create", "Hero", new AjaxOptions
+            @*@using (Ajax.BeginForm("Create", "Hero", new AjaxOptions
             {
                 HttpMethod = "POST"
-            }))
+            }))*@
+            @using(Html.BeginForm("Create", "Hero", FormMethod.Post))
             {
                 <div class="row">
                     <!-- Colonne de gauche -->

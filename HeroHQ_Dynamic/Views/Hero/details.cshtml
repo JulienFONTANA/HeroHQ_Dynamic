@@ -1,5 +1,8 @@
-﻿<!-- Model utilisé par la vue Razor pour afficher le détail d'un héro -->
-@model HeroHQ_Dynamic.ViewModels.HeroDetailsViewModel
+﻿@using HeroHQ_Dynamic.Models;
+
+<!-- Model utilisé par la View pour afficher le détail d'un héro -->
+@model Hero
+
 
 <!-- Hero Details -->
 <div class="col-xs-12 col-sm-9">
@@ -11,16 +14,16 @@
                 <!-- Affichage de l'image à gauche -->
                 <div class="col-vxs-12 col-xs-6 col-sm-5">
                     <div class="avatar-wrap">
-                        <img class="avatar" src="/images/@Model.detail.Photo" alt="@Model.detail.Nom">
+                        <img class="avatar" src="/images/@Model.Photo" alt="@Model.Nom">
                     </div>
                 </div>
                 <!-- Affichage des informations à droite -->
                 <div class="col-vxs-12 col-xs-6 col-sm-7">
                     <div class="infos">
-                        <h1 class="name">@Model.detail.Nom</h1>
-                        <p><span><span class="fwb">Citation :</span> @Model.detail.Citation</span></p>
-                        <p><span><span class="fwb">Âge :</span> @Model.detail.Age ans</span></p>
-                        <p><span><span class="fwb">Pouvoir :</span> @Model.detail.Pouvoir</span></p>
+                        <h1 class="name">@Model.Nom</h1>
+                        <p><span><span class="fwb">Citation :</span> @Model.Citation</span></p>
+                        <p><span><span class="fwb">Âge :</span> @Model.Age ans</span></p>
+                        <p><span><span class="fwb">Pouvoir :</span> @Model.Pouvoir</span></p>
                     </div>
                 </div>
             </div>
