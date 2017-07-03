@@ -7,29 +7,25 @@
         <section class="section">
 
             <!-- Formulaire utilisé pour créer un nouveau héro -->
-            @*@using (Ajax.BeginForm("Create", "Hero", new AjaxOptions
-            {
-                HttpMethod = "POST"
-            }))*@
             @using(Html.BeginForm("Create", "Hero", FormMethod.Post))
             {
                 <div class="row">
                     <!-- Colonne de gauche -->
                     <div class="col-xs-6">
                         <p class="line">
-                            <label for="">Quel est votre nom de héro?</label>
+                            <label for="">Quel est votre nom de héros ?</label>
                             <input type="text" class="mb0 wide" id="heroName" name="heroName" required>
                         </p>
                         <p class="line">
-                            <label for="">Quel âge avez vous?</label>
+                            <label for="">Quel âge avez vous ?</label>
                             <input type="number" class="mb0 wide" id="heroAge" name="heroAge" required>
                         </p>
                         <p class="line">
-                            <label for="">Quel est votre pouvoir?</label>
+                            <label for="">Quel est votre pouvoir ?</label>
                             <input type="text" class="mb0 wide" id="heroPow" name="heroPow" required>
                         </p>
                         <p class="line">
-                            <label for="">Quel est votre citation de référance?</label>
+                            <label for="">Quel est votre citation de référance ?</label>
                             <input type="text" class="mb0 wide" id="heroCit" name="heroCit" required>
                         </p>
                     </div>
@@ -37,7 +33,7 @@
                     <!-- Colonne de droite -->
                     <div class="col-xs-6">
                         <p class="line">
-                            <label for="">Photo du héro</label>
+                            <label for="">Photo du héros</label>
                             <input type="file" class="mb0" id="heroImg" name="heroImg" required>
                         </p>
                         <p class="line ac">

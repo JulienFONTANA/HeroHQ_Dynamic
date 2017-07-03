@@ -46,9 +46,8 @@ namespace HeroHQ_Dynamic.Controllers
 
         // Gère la recherche de héros
         #region Recherche
-        // Si il n'y a pas de paramètre passé, on prends "" comme valeur par défaut.
-        // "" étant présent dans tout les noms de héros, on obtiendra la liste de tout les héros.
-        public ActionResult Search(string heroName = "")
+        [HttpGet]
+        public ActionResult Search(string heroName)
         {
             /* Cette requète est à la fois compliquée et très simple.
              *  
@@ -66,6 +65,15 @@ namespace HeroHQ_Dynamic.Controllers
              * recherché en minuscule puis tri les résultas par ordre alphabétique, et
              * met ces résultats dans une liste.
             */
+
+            
+            /*
+             * Si il n'y a pas de paramètre passé, on prends "" comme valeur par défaut.
+             * "" étant présent dans tout les noms de héros, on obtiendra la liste de tout les héros.
+            */ 
+            if (heroName == null)
+                heroName = "";
+
             heroName = heroName.ToLower();
 
             var heroSearch = bdd.Heroes.Where(h => h.Nom.ToLower().Contains(heroName))

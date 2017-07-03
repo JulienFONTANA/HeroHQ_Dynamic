@@ -18,14 +18,14 @@
 
                                 <div class="filters" id="filters">
                                     <!-- Formulaire de recherche -->
-                                    @using(Html.BeginForm("Search", "Hero"))
+                                    @using(Html.BeginForm("Search", "Hero", FormMethod.Get))
                                     {
                                         <div class="filter">
-                                            <p><label for="">Nom du héro</label></p>
+                                            <p><label for="">Nom du héros</label></p>
                                             <p><input type="text" name="heroName" id="heroName" placeholder="ex: Reaper"></p>
                                         </div>
                                         <button type="submit" class="btn btn_big btn_color1" value="Submit" id="SubmitBtn">
-                                            Trouver un héro
+                                            Trouver un héros
                                             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                                         </button>
                                     }
@@ -38,7 +38,7 @@
 
                 <!-- Affichage du résultat de la recherche -->
                 <div class="result">
-                    <div class="heroes row" id="HeroResult">
+                    <div class="heroes row">
                         <div class="col-xs-12">
                             <!-- Si le modèle est null ou vide, la recherche à été infructueuse -->
                             @if (Model == null || Model.Count == 0)
